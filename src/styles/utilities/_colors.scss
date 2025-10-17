@@ -1,0 +1,27 @@
+@use '../config/variables' as *;
+
+// Text color utilities
+.ethio-text-primary { color: $primary; }
+.ethio-text-secondary { color: $secondary; }
+.ethio-text-success { color: $ethio-green; }
+.ethio-text-warning { color: $ethio-yellow; }
+.ethio-text-error { color: $ethio-red; }
+.ethio-text-info { color: $ethio-blue; }
+.ethio-text-white { color: white; }
+.ethio-text-black { color: black; }
+.ethio-text-gray { color: #6c757d; }
+
+// Background color utilities
+.ethio-bg-primary { background-color: $primary; }
+.ethio-bg-secondary { background-color: $secondary; }
+.ethio-bg-success { background-color: $ethio-green; }
+.ethio-bg-warning { background-color: $ethio-yellow; }
+.ethio-bg-error { background-color: $ethio-red; }
+.ethio-bg-info { background-color: $ethio-blue; }
+.ethio-bg-white { background-color: white; }
+.ethio-bg-light { background-color: #f8f9fa; }
+.ethio-bg-dark { background-color: #212529; }
+
+// Border color utilities
+.ethio-border-primary { border-color: $primary; }
+.ethio-border-secondary { border-color: $secondary; }

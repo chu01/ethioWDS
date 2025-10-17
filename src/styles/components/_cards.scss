@@ -1,0 +1,52 @@
+@use '../config/variables' as *;
+
+.ethio-card {
+  background: white;
+  border: 1px solid #eaeaea;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+  }
+
+  // Card header
+  &-header {
+    margin-bottom: 1rem;
+    
+    h1, h2, h3, h4, h5, h6 {
+      color: $primary;
+      margin: 0;
+    }
+  }
+
+  // Card body
+  &-body {
+    color: #666;
+    line-height: 1.6;
+  }
+
+  // Card footer
+  &-footer {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eaeaea;
+  }
+
+  // Variants
+  &-primary {
+    border-left: 4px solid $primary;
+  }
+
+  &-secondary {
+    border-left: 4px solid $secondary;
+  }
+
+  // Elevated card
+  &-elevated {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  }
+}

@@ -7,6 +7,18 @@
 @use 'base/reset';
 @use 'base/typography' as base-typography;
 
+// Components
+@use 'components/buttons';
+@use 'components/cards';
+@use 'components/forms';
+@use 'components/alerts';
+@use 'components/navigation';
+
+// Utilities
+@use 'utilities/display';
+@use 'utilities/spacing';
+@use 'utilities/colors' as color-utilities;
+
 // Main styles
 body {
   font-family: $font-family-sans;

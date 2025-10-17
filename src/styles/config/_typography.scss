@@ -1,0 +1,15 @@
+// Typography utilities
+@use 'variables' as *;
+
+.ethio-font-sans {
+  font-family: $font-family-sans;
+}
+
+.ethio-font-serif {
+  font-family: $font-family-serif;
+}
+
+.ethio-heading {
+  font-weight: 600;
+  line-height: 1.2;
+}

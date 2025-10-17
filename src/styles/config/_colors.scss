@@ -1,0 +1,18 @@
+// Color utilities
+@use 'variables' as *;
+
+.ethio-bg-primary {
+  background-color: var(--primary);
+}
+
+.ethio-text-primary {
+  color: var(--primary);
+}
+
+.ethio-bg-green {
+  background-color: $ethio-green;
+}
+
+.ethio-text-green {
+  color: $ethio-green;
+}

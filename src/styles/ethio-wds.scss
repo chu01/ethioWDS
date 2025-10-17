@@ -1,0 +1,18 @@
+// Configuration
+@use 'config/variables' as *;
+@use 'config/colors';
+@use 'config/typography';
+
+// Base styles
+@use 'base/reset';
+@use 'base/typography' as base-typography;
+
+// Main styles
+body {
+  font-family: $font-family-sans;
+  line-height: 1.6;
+}
+
+// Import component styles (when you create them)
+// @use 'components/button';
+// @use 'components/form';

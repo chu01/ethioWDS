@@ -1,0 +1,60 @@
+{
+  "name": "@abiyub/ethiowds",
+  "version": "1.0.0",
+  "description": "Ethiopian Web Design System - A comprehensive design system for Ethiopian government websites",
+  "main": "dist/js/ethio-wds.js",
+  "style": "dist/css/ethio-wds.css",
+  "files": [
+    "dist/**/*",
+    "src/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "npm run clean && npm run build:css && npm run build:js",
+    "build:css": "sass src/styles/ethio-wds.scss dist/css/ethio-wds.css --style=compressed",
+    "build:js": "webpack --mode=production",
+    "dev": "npm run build:css && webpack --mode=development --watch",
+    "watch:css": "sass src/styles/ethio-wds.scss dist/css/ethio-wds.css --watch",
+    "clean": "rm -rf dist && mkdir -p dist/css dist/js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "ethiopia",
+    "design-system",
+    "css-framework",
+    "uswds",
+    "government",
+    "amharic",
+    "ethiopic",
+    "web-design",
+    "css",
+    "scss"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chu01/ethiowds.git"
+  },
+  "homepage": "https://github.com/chu01/ethiowds",
+  "bugs": {
+    "url": "https://github.com/chu01/ethiowds/issues"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "gulp": "^4.0.2",
+    "gulp-imagemin": "^7.1.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "sass": "^1.54.0",
+    "sass-loader": "^13.0.2",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  }
+}

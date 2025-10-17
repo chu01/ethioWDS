@@ -1,0 +1,50 @@
+// Ethiopian Color Palette with !default for customization
+$ethio-green: #078930 !default;
+$ethio-yellow: #fcdd09 !default;
+$ethio-red: #da121a !default;
+$ethio-blue: #0f47af !default;
+
+// Theme colors
+$primary: $ethio-green !default;
+$secondary: $ethio-yellow !default;
+$accent: $ethio-red !default;
+$info: $ethio-blue !default;
+
+// Typography
+$font-family-sans: 'Noto Sans Ethiopic', 'Arial', sans-serif !default;
+$font-family-serif: 'Noto Serif Ethiopic', 'Georgia', serif !default;
+$font-size-base: 1rem !default;
+$line-height-base: 1.5 !default;
+
+// Spacing
+$spacing-unit: 1rem !default;
+
+// CSS Custom Properties
+:root {
+  // Primary colors (Ethiopian flag colors)
+  --ethio-green: #{$ethio-green};
+  --ethio-yellow: #{$ethio-yellow};
+  --ethio-red: #{$ethio-red};
+  --ethio-blue: #{$ethio-blue};
+  
+  // Neutral colors
+  --ethio-gray-100: #f8f9fa;
+  --ethio-gray-200: #e9ecef;
+  --ethio-gray-500: #6c757d;
+  --ethio-gray-900: #212529;
+  
+  // Theme colors
+  --primary: var(--ethio-green);
+  --secondary: var(--ethio-yellow);
+  --accent: var(--ethio-red);
+  --info: var(--ethio-blue);
+  
+  // Typography
+  --font-family-sans: #{$font-family-sans};
+  --font-family-serif: #{$font-family-serif};
+  --font-size-base: #{$font-size-base};
+  --line-height-base: #{$line-height-base};
+  
+  // Spacing
+  --spacing-unit: #{$spacing-unit};
+}

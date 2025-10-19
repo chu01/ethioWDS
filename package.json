@@ -1,6 +1,6 @@
 {
   "name": "@abiyub/ethiowds",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Ethiopian Web Design System - A comprehensive design system for Ethiopian government websites",
   "main": "dist/js/ethio-wds.js",
   "style": "dist/css/ethio-wds.css",

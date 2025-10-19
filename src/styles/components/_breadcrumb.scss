@@ -1,0 +1,51 @@
+@use '../config/variables' as *;
+
+.ethio-breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.875rem;
+
+  &-item {
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child)::after {
+      content: '/';
+      margin: 0 0.5rem;
+      color: #6b7280;
+    }
+
+    a {
+      color: $primary;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: darken($primary, 15%);
+        text-decoration: underline;
+      }
+    }
+
+    &.active {
+      color: #6b7280;
+
+      a {
+        color: inherit;
+        pointer-events: none;
+      }
+    }
+  }
+
+  // Variants
+  &-primary &-item:not(.active) a {
+    color: $primary;
+  }
+
+  &-secondary &-item:not(.active) a {
+    color: $secondary;
+  }
+}

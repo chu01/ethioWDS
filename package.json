@@ -11,12 +11,13 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "npm run clean && npm run build:css && npm run build:js",
+    "build": "npm run clean && npm run build:css && npm run build:js && npm run build:assets",
     "build:css": "sass src/styles/ethio-wds.scss dist/css/ethio-wds.css --style=compressed",
     "build:js": "webpack --mode=production",
+    "build:assets": "gulp build-assets",
     "dev": "npm run build:css && webpack --mode=development --watch",
     "watch:css": "sass src/styles/ethio-wds.scss dist/css/ethio-wds.css --watch",
-    "clean": "rm -rf dist && mkdir -p dist/css dist/js",
+    "clean": "rm -rf dist && mkdir -p dist/css dist/js dist/assets/fonts dist/assets/icons",
     "prepublishOnly": "npm run build"
   },
   "keywords": [

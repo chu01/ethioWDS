@@ -1,0 +1,41 @@
+@use '../config/variables' as *;
+
+.ethio-progress {
+  background: #e5e7eb;
+  border-radius: 9999px;
+  overflow: hidden;
+  height: 0.5rem;
+
+  &-bar {
+    height: 100%;
+    background: $primary;
+    border-radius: 9999px;
+    transition: width 0.3s ease;
+    
+    // Variants
+    &.secondary {
+      background: $secondary;
+    }
+    
+    &.success {
+      background: $ethio-green;
+    }
+    
+    &.warning {
+      background: $ethio-yellow;
+    }
+    
+    &.error {
+      background: $ethio-red;
+    }
+  }
+
+  // Sizes
+  &-sm {
+    height: 0.25rem;
+  }
+
+  &-lg {
+    height: 0.75rem;
+  }
+}

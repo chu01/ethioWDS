@@ -1,0 +1,62 @@
+@use '../config/variables' as *;
+
+.ethio-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: $primary;
+  color: white;
+  font-weight: 600;
+  overflow: hidden;
+
+  // Sizes
+  &-sm {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.75rem;
+  }
+
+  &-md {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1rem;
+  }
+
+  &-lg {
+    width: 4rem;
+    height: 4rem;
+    font-size: 1.25rem;
+  }
+
+  &-xl {
+    width: 6rem;
+    height: 6rem;
+    font-size: 2rem;
+  }
+
+  // Variants
+  &-secondary {
+    background: $secondary;
+  }
+
+  &-success {
+    background: $ethio-green;
+  }
+
+  &-warning {
+    background: $ethio-yellow;
+    color: #000;
+  }
+
+  &-error {
+    background: $ethio-red;
+  }
+
+  // Image avatar
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

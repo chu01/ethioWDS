@@ -1,0 +1,51 @@
+@use 'sass:color';
+@use '../config/variables' as *;
+
+.ethio-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  // Variants
+  &-primary {
+    background: rgba($primary, 0.1);
+    color: $primary;
+  }
+
+  &-secondary {
+    background: rgba($secondary, 0.1);
+    color: $secondary;
+  }
+
+  &-success {
+    background: rgba($ethio-green, 0.1);
+    color: $ethio-green;
+  }
+
+  &-warning {
+    background: rgba($ethio-yellow, 0.1);
+    color: color.adjust($ethio-yellow, $lightness: -20%);
+  }
+
+  &-error {
+    background: rgba($ethio-red, 0.1);
+    color: $ethio-red;
+  }
+
+  // Sizes
+  &-sm {
+    font-size: 0.625rem;
+    padding: 0.125rem 0.375rem;
+  }
+
+  &-lg {
+    font-size: 0.875rem;
+    padding: 0.375rem 0.75rem;
+  }
+}

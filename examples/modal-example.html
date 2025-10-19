@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../dist/css/ethio-wds.css">
+</head>
+<body>
+    <button onclick="ethio.openModal('demo-modal')">Open Modal</button>
+    
+    <div class="ethio-modal" id="demo-modal">
+        <div class="ethio-modal-content">
+            <div class="ethio-modal-header">
+                <h3>Modal Title</h3>
+                <button class="ethio-modal-close" onclick="ethio.closeModal('demo-modal')">×</button>
+            </div>
+            <div class="ethio-modal-body">
+                <p>This is a modal dialog with EthioWDS styling.</p>
+            </div>
+            <div class="ethio-modal-footer">
+                <button class="ethio-btn ethio-btn-ghost" onclick="ethio.closeModal('demo-modal')">Cancel</button>
+                <button class="ethio-btn ethio-btn-primary">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../dist/js/ethio-wds.js"></script>
+    <script>
+        const ethio = new ethioWDS();
+    </script>
+</body>
+</html>

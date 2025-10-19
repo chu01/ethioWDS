@@ -1,0 +1,93 @@
+@use 'sass:color';
+@use '../config/variables' as *;
+
+.ethio-summary {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+
+    h3, h4 {
+      margin: 0;
+      color: $primary;
+    }
+  }
+
+  &-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 0.5rem 0;
+  }
+
+  &-subtitle {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin: 0;
+  }
+
+  &-content {
+    color: #374151;
+    line-height: 1.6;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &-footer {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  // Variants
+  &-primary {
+    border-left: 4px solid $primary;
+  }
+
+  &-secondary {
+    border-left: 4px solid $secondary;
+  }
+
+  &-success {
+    border-left: 4px solid $ethio-green;
+  }
+
+  &-warning {
+    border-left: 4px solid $ethio-yellow;
+  }
+
+  &-error {
+    border-left: 4px solid $ethio-red;
+  }
+
+  // Compact version
+  &-compact {
+    padding: 1rem;
+
+    .ethio-summary-header {
+      margin-bottom: 0.75rem;
+    }
+
+    .ethio-summary-footer {
+      margin-top: 1rem;
+      padding-top: 0.75rem;
+    }
+  }
+
+  // Elevated version
+  &-elevated {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+}

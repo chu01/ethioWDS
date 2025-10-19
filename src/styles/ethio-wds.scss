@@ -18,6 +18,12 @@
 @use 'components/progress';
 @use 'components/tabs';
 @use 'components/avatar';
+@use 'components/accordion';
+@use 'components/breadcrumb';
+@use 'components/pagination';
+@use 'components/summary';
+@use 'components/search';
+
 
 // Utilities
 @use 'utilities/display';

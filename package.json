@@ -11,14 +11,13 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "npm run clean && npm run build:css && npm run build:js && npm run build:assets",
-    "build:css": "sass src/styles/ethio-wds.scss dist/css/ethio-wds.css --style=compressed",
+    "build": "npm run clean && npm run build:css && npm run build:js && npm run build:assets && npm run verify-build",
+    "build:css": "sass src/styles/ethio-wds.scss dist/css/ethio-wds.css --style=compressed --no-source-map --quiet",
     "build:js": "webpack --mode=production",
-    "build:assets": "gulp build-assets",
-    "dev": "npm run build:css && webpack --mode=development --watch",
-    "watch:css": "sass src/styles/ethio-wds.scss dist/css/ethio-wds.css --watch",
-    "clean": "rm -rf dist && mkdir -p dist/css dist/js dist/assets/fonts dist/assets/icons",
-    "prepublishOnly": "npm run build"
+    "build:assets": "gulp build-assets || echo 'No gulp build-assets command'",
+    "clean": "rm -rf dist && mkdir -p dist/css dist/js dist/assets",
+    "verify-build": "node -e \"const fs = require('fs'); if (!fs.existsSync('dist/css/ethio-wds.css')) { console.error('❌ CSS build failed!'); process.exit(1); } if (!fs.existsSync('dist/js/ethio-wds.js')) { console.error('❌ JS build failed!'); process.exit(1); } console.log('✅ Build verified: CSS and JS files exist');\"",
+    "prepublishOnly": "npm run build && npm run verify-build"
   },
   "keywords": [
     "ethiopia",

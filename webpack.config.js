@@ -1,5 +1,4 @@
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: './src/js/ethio-wds.js',
@@ -10,7 +9,7 @@ module.exports = {
     libraryTarget: 'umd',
     globalObject: 'this',
     umdNamedDefine: true,
-    clean: true // Clean output directory before emit
+    clean: false // ⚠️ Change to false to preserve CSS files
   },
   module: {
     rules: [
@@ -35,32 +34,10 @@ module.exports = {
             ]
           }
         }
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader'
-        ]
       }
     ]
   },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'css/ethio-wds.css'
-    })
-  ],
   resolve: {
-    extensions: ['.js'],
-    alias: {
-      // Optional: Create aliases for easier imports
-      '@components': path.resolve(__dirname, 'src/js/components/'),
-      '@utils': path.resolve(__dirname, 'src/js/utils/')
-    }
-  },
-  externals: {
-    // If you want to exclude certain dependencies from the bundle
-    // 'some-dependency': 'someDependency'
+    extensions: ['.js']
   }
 };

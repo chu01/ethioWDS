@@ -1,0 +1,160 @@
+// EthioWDS Radio Group Component
+@use '../config/variables' as *;
+
+.eth-radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-unit * 0.5;
+    font-family: $font-family-sans;
+  
+    &__label {
+      font-weight: 600;
+      color: var(--ethio-gray-900);
+      margin-bottom: $spacing-unit * 0.5;
+    }
+  
+    &__description {
+      font-size: 0.875rem;
+      color: var(--ethio-gray-500);
+      margin-bottom: $spacing-unit * 0.5;
+    }
+  
+    &__options {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-unit * 0.5;
+    }
+  
+    &--horizontal &__options {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  
+    &--inline &__options {
+      flex-direction: row;
+      align-items: center;
+      gap: $spacing-unit;
+    }
+  
+    // Error state
+    &--error {
+      .eth-radio-group__label {
+        color: var(--accent);
+      }
+      
+      .eth-radio-group__description {
+        color: var(--accent);
+      }
+    }
+  }
+  
+  .eth-radio {
+    display: flex;
+    align-items: center;
+    gap: $spacing-unit * 0.5;
+    cursor: pointer;
+    font-size: $font-size-base;
+    color: var(--ethio-gray-900);
+  
+    &__input {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+  
+      &:checked + .eth-radio__checkmark {
+        border-color: var(--primary);
+        background-color: var(--primary);
+        
+        &::after {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+  
+      &:focus + .eth-radio__checkmark {
+        box-shadow: 0 0 0 3px rgba($ethio-green, 0.2);
+      }
+  
+      &:disabled {
+        + .eth-radio__checkmark {
+          background-color: var(--ethio-gray-200);
+          border-color: var(--ethio-gray-400);
+          cursor: not-allowed;
+          
+          &::after {
+            background-color: var(--ethio-gray-400);
+          }
+        }
+        
+        ~ .eth-radio__label {
+          color: var(--ethio-gray-500);
+          cursor: not-allowed;
+        }
+      }
+    }
+  
+    &__checkmark {
+      position: relative;
+      width: 1.25rem;
+      height: 1.25rem;
+      border: 2px solid var(--ethio-gray-400);
+      border-radius: 50%;
+      background-color: white;
+      transition: all 0.2s ease-in-out;
+      flex-shrink: 0;
+  
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 50%;
+        background-color: white;
+        opacity: 0;
+        transition: all 0.2s ease-in-out;
+      }
+    }
+  
+    &__label {
+      user-select: none;
+    }
+  
+    &__description {
+      font-size: 0.875rem;
+      color: var(--ethio-gray-500);
+      margin-top: $spacing-unit * 0.25;
+    }
+  
+    // Size variants
+    &--small {
+      font-size: 0.875rem;
+      
+      .eth-radio__checkmark {
+        width: 1rem;
+        height: 1rem;
+        
+        &::after {
+          width: 0.375rem;
+          height: 0.375rem;
+        }
+      }
+    }
+  
+    &--large {
+      font-size: 1.125rem;
+      
+      .eth-radio__checkmark {
+        width: 1.5rem;
+        height: 1.5rem;
+        
+        &::after {
+          width: 0.625rem;
+          height: 0.625rem;
+        }
+      }
+    }
+  }

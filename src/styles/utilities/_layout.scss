@@ -1,0 +1,71 @@
+// EthioWDS Layout Utilities
+// Container
+@use '../config/variables' as *;
+
+.eth-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-unit;
+  
+    &--fluid {
+      max-width: none;
+    }
+  
+    &--small {
+      max-width: 800px;
+    }
+  
+    &--large {
+      max-width: 1400px;
+    }
+  }
+  
+  // Display utilities
+  .eth-d-block { display: block; }
+  .eth-d-inline { display: inline; }
+  .eth-d-inline-block { display: inline-block; }
+  .eth-d-flex { display: flex; }
+  .eth-d-inline-flex { display: inline-flex; }
+  .eth-d-grid { display: grid; }
+  .eth-d-inline-grid { display: inline-grid; }
+  .eth-d-none { display: none; }
+  
+  // Position utilities
+  .eth-relative { position: relative; }
+  .eth-absolute { position: absolute; }
+  .eth-fixed { position: fixed; }
+  .eth-sticky { position: sticky; }
+  .eth-static { position: static; }
+  
+  // Overflow utilities
+  .eth-overflow-auto { overflow: auto; }
+  .eth-overflow-hidden { overflow: hidden; }
+  .eth-overflow-visible { overflow: visible; }
+  .eth-overflow-scroll { overflow: scroll; }
+  .eth-overflow-x-auto { overflow-x: auto; }
+  .eth-overflow-y-auto { overflow-y: auto; }
+  
+  // Z-index utilities
+  .eth-z-0 { z-index: 0; }
+  .eth-z-10 { z-index: 10; }
+  .eth-z-20 { z-index: 20; }
+  .eth-z-30 { z-index: 30; }
+  .eth-z-40 { z-index: 40; }
+  .eth-z-50 { z-index: 50; }
+  .eth-z-auto { z-index: auto; }
+  
+  // Responsive display utilities
+  @media (max-width: 768px) {
+    .eth-d-none-mobile { display: none; }
+    .eth-d-block-mobile { display: block; }
+    .eth-d-flex-mobile { display: flex; }
+    .eth-d-grid-mobile { display: grid; }
+  }
+  
+  @media (min-width: 769px) {
+    .eth-d-none-desktop { display: none; }
+    .eth-d-block-desktop { display: block; }
+    .eth-d-flex-desktop { display: flex; }
+    .eth-d-grid-desktop { display: grid; }
+  }

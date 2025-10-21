@@ -1,0 +1,212 @@
+// EthioWDS Language Switcher Component
+@use '../config/variables' as *;
+
+.eth-language-switcher {
+    position: relative;
+    display: inline-flex;
+    font-family: $font-family-sans;
+  
+    &__trigger {
+      display: flex;
+      align-items: center;
+      gap: $spacing-unit * 0.5;
+      padding: calc($spacing-unit * 0.5) calc($spacing-unit * 0.75);
+      background-color: white;
+      border: 1px solid var(--ethio-gray-300);
+      border-radius: 6px;
+      color: var(--ethio-gray-700);
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      font-size: 0.875rem;
+      
+      &:hover {
+        border-color: var(--ethio-gray-400);
+        background-color: var(--ethio-gray-50);
+      }
+      
+      &:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba($ethio-green, 0.1);
+      }
+      
+      &--open {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba($ethio-green, 0.1);
+      }
+    }
+  
+    &__current {
+      display: flex;
+      align-items: center;
+      gap: $spacing-unit * 0.5;
+    }
+  
+    &__flag {
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 2px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+  
+    &__code {
+      font-weight: 600;
+      color: var(--ethio-gray-900);
+    }
+  
+    &__chevron {
+      transition: transform 0.2s ease-in-out;
+      color: var(--ethio-gray-500);
+      
+      &--open {
+        transform: rotate(180deg);
+      }
+    }
+  
+    &__dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background-color: white;
+      border: 1px solid var(--ethio-gray-300);
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      margin-top: 4px;
+      min-width: 140px;
+      overflow: hidden;
+      
+      // RTL support
+      [dir="rtl"] & {
+        left: auto;
+        right: 0;
+      }
+    }
+  
+    &__options {
+      list-style: none;
+      margin: 0;
+      padding: $spacing-unit * 0.5;
+    }
+  
+    &__option {
+      display: flex;
+      align-items: center;
+      gap: $spacing-unit * 0.5;
+      padding: calc($spacing-unit * 0.5) calc($spacing-unit * 0.75);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.1s ease-in-out;
+      text-decoration: none;
+      color: var(--ethio-gray-700);
+      font-size: 0.875rem;
+      
+      &:hover {
+        background-color: var(--ethio-gray-100);
+        color: var(--ethio-gray-900);
+      }
+      
+      &--active {
+        background-color: rgba($ethio-green, 0.1);
+        color: var(--primary);
+        font-weight: 600;
+      }
+      
+      // RTL support
+      [dir="rtl"] & {
+        text-align: right;
+      }
+    }
+  
+    &__option-flag {
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 2px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+  
+    &__option-text {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    &__option-name {
+      font-weight: 500;
+      line-height: 1.2;
+    }
+  
+    &__option-native {
+      font-size: 0.75rem;
+      color: var(--ethio-gray-500);
+      line-height: 1.2;
+      margin-top: 1px;
+    }
+  
+    // Size variants
+    &--small &__trigger {
+      padding: calc($spacing-unit * 0.375) calc($spacing-unit * 0.5);
+      font-size: 0.75rem;
+    }
+  
+    &--large &__trigger {
+      padding: calc($spacing-unit * 0.75) $spacing-unit;
+      font-size: 1rem;
+    }
+  
+    // Style variants
+    &--minimal &__trigger {
+      background: transparent;
+      border: 1px solid transparent;
+      
+      &:hover {
+        background-color: var(--ethio-gray-100);
+        border-color: var(--ethio-gray-300);
+      }
+    }
+  
+    &--bordered &__trigger {
+      border: 2px solid var(--ethio-gray-300);
+      
+      &:hover {
+        border-color: var(--ethio-gray-400);
+      }
+      
+      &:focus {
+        border-color: var(--primary);
+      }
+    }
+  }
+  
+  // Inline language switcher (simple button group)
+  .eth-language-switcher-inline {
+    display: flex;
+    background-color: var(--ethio-gray-100);
+    border-radius: 6px;
+    padding: 2px;
+    gap: 2px;
+    
+    &__option {
+      padding: calc($spacing-unit * 0.375) calc($spacing-unit * 0.75);
+      border: none;
+      background: transparent;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.875rem;
+      color: var(--ethio-gray-600);
+      transition: all 0.2s ease-in-out;
+      
+      &:hover {
+        color: var(--ethio-gray-900);
+      }
+      
+      &--active {
+        background-color: white;
+        color: var(--primary);
+        font-weight: 600;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }

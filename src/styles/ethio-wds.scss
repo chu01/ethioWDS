@@ -1,6 +1,6 @@
 // Configuration
 @use 'config/variables' as *;
-@use 'config/colors';
+@use 'config/color-palette' as colors;
 @use 'config/typography';
 
 // Base styles
@@ -24,18 +24,30 @@
 @use 'components/summary';
 @use 'components/search';
 
+// NEW CORE COMPONENTS
+@use 'components/table';
+@use 'components/skeleton';
+@use 'components/switch';
+@use 'components/toast';
+@use 'components/select';
+@use 'components/tooltip';
+@use 'components/radio-group';     
+@use 'components/checkbox-group';  
+@use 'components/language-switcher'; 
+@use 'components/sidebar';        
+@use 'components/divider';        
+@use 'components/grid';        
+@use 'components/flex-grid'; 
+
 
 // Utilities
 @use 'utilities/display';
 @use 'utilities/spacing';
-@use 'utilities/colors' as color-utilities;
+@use 'utilities/color-helpers' as color-utils;
+@use 'utilities/layout'; 
 
 // Main styles
 body {
   font-family: $font-family-sans;
-  line-height: 1.6;
+  line-height: $line-height-base;
 }
-
-// Import component styles (when you create them)
-// @use 'components/button';
-// @use 'components/form';

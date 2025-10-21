@@ -1,0 +1,116 @@
+// EthioWDS CSS Grid System
+@use '../config/variables' as *;
+
+.eth-grid {
+    display: grid;
+    gap: $spacing-unit;
+    width: 100%;
+  
+    // Basic grid templates
+    &--cols-1 { grid-template-columns: repeat(1, 1fr); }
+    &--cols-2 { grid-template-columns: repeat(2, 1fr); }
+    &--cols-3 { grid-template-columns: repeat(3, 1fr); }
+    &--cols-4 { grid-template-columns: repeat(4, 1fr); }
+    &--cols-5 { grid-template-columns: repeat(5, 1fr); }
+    &--cols-6 { grid-template-columns: repeat(6, 1fr); }
+    &--cols-7 { grid-template-columns: repeat(7, 1fr); }
+    &--cols-8 { grid-template-columns: repeat(8, 1fr); }
+    &--cols-9 { grid-template-columns: repeat(9, 1fr); }
+    &--cols-10 { grid-template-columns: repeat(10, 1fr); }
+    &--cols-11 { grid-template-columns: repeat(11, 1fr); }
+    &--cols-12 { grid-template-columns: repeat(12, 1fr); }
+  
+    // Auto grids
+    &--auto-fit { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    &--auto-fill { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+  
+    // Gap variants
+    &--gap-none { gap: 0; }
+    &--gap-sm { gap: calc($spacing-unit * 0.5); }
+    &--gap-md { gap: $spacing-unit; }
+    &--gap-lg { gap: calc($spacing-unit * 1.5); }
+    &--gap-xl { gap: calc($spacing-unit * 2); }
+  
+    // Alignment
+    &--align-start { align-items: start; }
+    &--align-center { align-items: center; }
+    &--align-end { align-items: end; }
+    &--align-stretch { align-items: stretch; }
+  
+    // Justification
+    &--justify-start { justify-items: start; }
+    &--justify-center { justify-items: center; }
+    &--justify-end { justify-items: end; }
+    &--justify-stretch { justify-items: stretch; }
+  
+    // Responsive grid
+    @media (max-width: 768px) {
+      &--responsive {
+        grid-template-columns: 1fr;
+      }
+      
+      &--cols-2,
+      &--cols-3,
+      &--cols-4,
+      &--cols-5,
+      &--cols-6 {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+  
+  // Grid item spans
+  .eth-grid-item {
+    // Column spans
+    &--col-span-1 { grid-column: span 1; }
+    &--col-span-2 { grid-column: span 2; }
+    &--col-span-3 { grid-column: span 3; }
+    &--col-span-4 { grid-column: span 4; }
+    &--col-span-5 { grid-column: span 5; }
+    &--col-span-6 { grid-column: span 6; }
+    &--col-span-7 { grid-column: span 7; }
+    &--col-span-8 { grid-column: span 8; }
+    &--col-span-9 { grid-column: span 9; }
+    &--col-span-10 { grid-column: span 10; }
+    &--col-span-11 { grid-column: span 11; }
+    &--col-span-12 { grid-column: span 12; }
+    &--col-span-full { grid-column: 1 / -1; }
+  
+    // Row spans
+    &--row-span-1 { grid-row: span 1; }
+    &--row-span-2 { grid-row: span 2; }
+    &--row-span-3 { grid-row: span 3; }
+    &--row-span-4 { grid-row: span 4; }
+    &--row-span-5 { grid-row: span 5; }
+    &--row-span-6 { grid-row: span 6; }
+    &--row-span-full { grid-row: 1 / -1; }
+  
+    // Item alignment
+    &--align-self-start { align-self: start; }
+    &--align-self-center { align-self: center; }
+    &--align-self-end { align-self: end; }
+    &--align-self-stretch { align-self: stretch; }
+  
+    // Item justification
+    &--justify-self-start { justify-self: start; }
+    &--justify-self-center { justify-self: center; }
+    &--justify-self-end { justify-self: end; }
+    &--justify-self-stretch { justify-self: stretch; }
+  
+    // Responsive spans
+    @media (max-width: 768px) {
+      &--col-span-2,
+      &--col-span-3,
+      &--col-span-4,
+      &--col-span-5,
+      &--col-span-6,
+      &--col-span-7,
+      &--col-span-8,
+      &--col-span-9,
+      &--col-span-10,
+      &--col-span-11,
+      &--col-span-12 {
+        grid-column: span 1;
+      }
+    }
+  }

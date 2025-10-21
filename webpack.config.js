@@ -2,14 +2,15 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: './src/scripts/ethio-wds.js',
+  entry: './src/js/ethio-wds.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'js/ethio-wds.js',
     library: 'ethioWDS',
     libraryTarget: 'umd',
     globalObject: 'this',
-    umdNamedDefine: true
+    umdNamedDefine: true,
+    clean: true // Clean output directory before emit
   },
   module: {
     rules: [
@@ -21,18 +22,45 @@ module.exports = {
           options: {
             presets: [
               ['@babel/preset-env', {
-                modules: false, // Preserve ES6 modules
+                modules: false,
                 targets: {
-                  browsers: ['> 1%', 'last 2 versions']
-                }
+                  browsers: ['> 1%', 'last 2 versions', 'not ie <= 11']
+                },
+                useBuiltIns: 'usage',
+                corejs: 3
               }]
+            ],
+            plugins: [
+              '@babel/plugin-proposal-class-properties'
             ]
           }
         }
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader'
+        ]
       }
     ]
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'css/ethio-wds.css'
+    })
+  ],
   resolve: {
-    extensions: ['.js']
+    extensions: ['.js'],
+    alias: {
+      // Optional: Create aliases for easier imports
+      '@components': path.resolve(__dirname, 'src/js/components/'),
+      '@utils': path.resolve(__dirname, 'src/js/utils/')
+    }
+  },
+  externals: {
+    // If you want to exclude certain dependencies from the bundle
+    // 'some-dependency': 'someDependency'
   }
 };

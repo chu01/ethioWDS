@@ -1,0 +1,148 @@
+// EthioWDS Divider Component
+@use '../config/variables' as *;
+
+.eth-divider {
+    border: none;
+    margin: $spacing-unit 0;
+    background-color: var(--ethio-gray-300);
+    
+    // Orientation
+    &--horizontal {
+      height: 1px;
+      width: 100%;
+    }
+    
+    &--vertical {
+      width: 1px;
+      height: auto;
+      align-self: stretch;
+      margin: 0 $spacing-unit;
+    }
+    
+    // Weight variants
+    &--light {
+      background-color: var(--ethio-gray-200);
+    }
+    
+    &--bold {
+      background-color: var(--ethio-gray-400);
+      height: 2px;
+      
+      &.eth-divider--vertical {
+        width: 2px;
+        height: auto;
+      }
+    }
+    
+    // Color variants
+    &--primary {
+      background-color: var(--primary);
+    }
+    
+    &--accent {
+      background-color: var(--accent);
+    }
+    
+    &--info {
+      background-color: var(--info);
+    }
+    
+    // With text
+    &--with-text {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      background-color: transparent;
+      color: var(--ethio-gray-500);
+      font-size: 0.875rem;
+      
+      &::before,
+      &::after {
+        content: '';
+        flex: 1;
+        background-color: var(--ethio-gray-300);
+        height: 1px;
+      }
+      
+      &::before {
+        margin-right: $spacing-unit;
+      }
+      
+      &::after {
+        margin-left: $spacing-unit;
+      }
+      
+      // RTL support
+      [dir="rtl"] &::before {
+        margin-right: 0;
+        margin-left: $spacing-unit;
+      }
+      
+      [dir="rtl"] &::after {
+        margin-left: 0;
+        margin-right: $spacing-unit;
+      }
+    }
+    
+    // Spacing variants
+    &--spacing-xs {
+      margin: calc($spacing-unit * 0.25) 0;
+      
+      &.eth-divider--vertical {
+        margin: 0 calc($spacing-unit * 0.25);
+      }
+    }
+    
+    &--spacing-sm {
+      margin: calc($spacing-unit * 0.5) 0;
+      
+      &.eth-divider--vertical {
+        margin: 0 calc($spacing-unit * 0.5);
+      }
+    }
+    
+    &--spacing-lg {
+      margin: calc($spacing-unit * 1.5) 0;
+      
+      &.eth-divider--vertical {
+        margin: 0 calc($spacing-unit * 1.5);
+      }
+    }
+    
+    &--spacing-xl {
+      margin: calc($spacing-unit * 2) 0;
+      
+      &.eth-divider--vertical {
+        margin: 0 calc($spacing-unit * 2);
+      }
+    }
+    
+    // Dashed style
+    &--dashed {
+      background-color: transparent;
+      border-top: 1px dashed var(--ethio-gray-300);
+      
+      &.eth-divider--vertical {
+        border-top: none;
+        border-left: 1px dashed var(--ethio-gray-300);
+      }
+      
+      &.eth-divider--bold {
+        border-top-width: 2px;
+        
+        &.eth-divider--vertical {
+          border-left-width: 2px;
+        }
+      }
+    }
+  }
+  
+  // Divider in flex containers
+  .eth-divider-flex {
+    display: flex;
+    align-items: center;
+    
+    .eth-divider--vertical {
+      flex-shrink: 0;
+    }
+  }

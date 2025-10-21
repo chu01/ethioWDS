@@ -1,0 +1,117 @@
+// EthioWDS Flexbox Grid System
+@use '../config/variables' as *;
+
+.eth-flex-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-unit;
+    width: 100%;
+  
+    // Gap variants
+    &--gap-none { gap: 0; }
+    &--gap-sm { gap: calc($spacing-unit * 0.5); }
+    &--gap-md { gap: $spacing-unit; }
+    &--gap-lg { gap: calc($spacing-unit * 1.5); }
+    &--gap-xl { gap: calc($spacing-unit * 2); }
+  
+    // Alignment
+    &--align-start { align-items: flex-start; }
+    &--align-center { align-items: center; }
+    &--align-end { align-items: flex-end; }
+    &--align-stretch { align-items: stretch; }
+  
+    // Justification
+    &--justify-start { justify-content: flex-start; }
+    &--justify-center { justify-content: center; }
+    &--justify-end { justify-content: flex-end; }
+    &--justify-between { justify-content: space-between; }
+    &--justify-around { justify-content: space-around; }
+    &--justify-evenly { justify-content: space-evenly; }
+  
+    // Direction
+    &--row { flex-direction: row; }
+    &--row-reverse { flex-direction: row-reverse; }
+    &--column { flex-direction: column; }
+    &--column-reverse { flex-direction: column-reverse; }
+  
+    // Wrap
+    &--nowrap { flex-wrap: nowrap; }
+    &--wrap { flex-wrap: wrap; }
+    &--wrap-reverse { flex-wrap: wrap-reverse; }
+  
+    // RTL support
+    [dir="rtl"] &--row { flex-direction: row-reverse; }
+    [dir="rtl"] &--row-reverse { flex-direction: row; }
+  }
+  
+  // Flex grid items
+  .eth-flex-item {
+    // Basic flex properties
+    &--grow { flex-grow: 1; }
+    &--grow-0 { flex-grow: 0; }
+    &--shrink { flex-shrink: 1; }
+    &--shrink-0 { flex-shrink: 0; }
+    &--auto { flex: 1 1 auto; }
+    &--initial { flex: 0 1 auto; }
+    &--none { flex: none; }
+  
+    // Self alignment
+    &--align-self-start { align-self: flex-start; }
+    &--align-self-center { align-self: center; }
+    &--align-self-end { align-self: flex-end; }
+    &--align-self-stretch { align-self: stretch; }
+    &--align-self-baseline { align-self: baseline; }
+  
+    // Column spans (12-column system)
+    &--col-1 { width: calc(8.333% - $spacing-unit); }
+    &--col-2 { width: calc(16.666% - $spacing-unit); }
+    &--col-3 { width: calc(25% - $spacing-unit); }
+    &--col-4 { width: calc(33.333% - $spacing-unit); }
+    &--col-5 { width: calc(41.666% - $spacing-unit); }
+    &--col-6 { width: calc(50% - $spacing-unit); }
+    &--col-7 { width: calc(58.333% - $spacing-unit); }
+    &--col-8 { width: calc(66.666% - $spacing-unit); }
+    &--col-9 { width: calc(75% - $spacing-unit); }
+    &--col-10 { width: calc(83.333% - $spacing-unit); }
+    &--col-11 { width: calc(91.666% - $spacing-unit); }
+    &--col-12 { width: calc(100% - $spacing-unit); }
+  
+    // Full width items (ignore gap)
+    &--full { width: 100%; }
+  
+    // Responsive columns
+    @media (max-width: 768px) {
+      &--col-1,
+      &--col-2,
+      &--col-3,
+      &--col-4,
+      &--col-5,
+      &--col-6,
+      &--col-7,
+      &--col-8,
+      &--col-9,
+      &--col-10,
+      &--col-11 {
+        width: calc(100% - $spacing-unit);
+      }
+    }
+  
+    @media (min-width: 769px) and (max-width: 1024px) {
+      &--col-1,
+      &--col-2,
+      &--col-3,
+      &--col-4 {
+        width: calc(50% - $spacing-unit);
+      }
+      
+      &--col-5,
+      &--col-6,
+      &--col-7,
+      &--col-8,
+      &--col-9,
+      &--col-10,
+      &--col-11 {
+        width: calc(100% - $spacing-unit);
+      }
+    }
+  }

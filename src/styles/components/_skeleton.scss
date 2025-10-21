@@ -1,0 +1,73 @@
+// EthioWDS Skeleton Loading Component
+@use '../config/variables' as *;
+
+.eth-skeleton {
+    background: linear-gradient(
+      90deg,
+      var(--ethio-gray-200) 25%,
+      var(--ethio-gray-100) 50%,
+      var(--ethio-gray-200) 75%
+    );
+    background-size: 200% 100%;
+    animation: eth-skeleton-loading 1.5s infinite;
+    border-radius: 4px;
+    
+    &--text {
+      height: 1rem;
+      margin-bottom: $spacing-unit * 0.5;
+      
+      &:last-child {
+        margin-bottom: 0;
+        width: 80%;
+      }
+    }
+    
+    &--circle {
+      border-radius: 50%;
+      width: 3rem;
+      height: 3rem;
+    }
+    
+    &--rectangle {
+      height: 8rem;
+      margin-bottom: $spacing-unit;
+    }
+    
+    &--avatar {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+    }
+    
+    &--button {
+      height: 2.5rem;
+      width: 6rem;
+    }
+    
+    &--card {
+      padding: $spacing-unit;
+      border-radius: 8px;
+      margin-bottom: $spacing-unit;
+    }
+  }
+  
+  @keyframes eth-skeleton-loading {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+  
+  // Skeleton group for complex layouts
+  .eth-skeleton-group {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-unit;
+    
+    &--horizontal {
+      flex-direction: row;
+      align-items: center;
+    }
+  }

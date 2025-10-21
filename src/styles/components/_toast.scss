@@ -1,0 +1,153 @@
+// EthioWDS Toast Notification Component
+@use '../config/variables' as *;
+
+.eth-toast {
+    position: fixed;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: $spacing-unit * 0.75;
+    padding: $spacing-unit;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-left: 4px solid var(--ethio-gray-500);
+    max-width: 400px;
+    min-width: 300px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    
+    &--show {
+      transform: translateX(0);
+    }
+    
+    &--success {
+      border-left-color: var(--primary);
+      
+      .eth-toast__icon {
+        color: var(--primary);
+      }
+    }
+    
+    &--error {
+      border-left-color: var(--accent);
+      
+      .eth-toast__icon {
+        color: var(--accent);
+      }
+    }
+    
+    &--warning {
+      border-left-color: var(--secondary);
+      
+      .eth-toast__icon {
+        color: var(--secondary);
+      }
+    }
+    
+    &--info {
+      border-left-color: var(--info);
+      
+      .eth-toast__icon {
+        color: var(--info);
+      }
+    }
+    
+    // Position variants
+    &--top-right {
+      top: $spacing-unit;
+      right: $spacing-unit;
+    }
+    
+    &--top-left {
+      top: $spacing-unit;
+      left: $spacing-unit;
+      transform: translateX(-100%);
+      
+      &.eth-toast--show {
+        transform: translateX(0);
+      }
+    }
+    
+    &--bottom-right {
+      bottom: $spacing-unit;
+      right: $spacing-unit;
+    }
+    
+    &--bottom-left {
+      bottom: $spacing-unit;
+      left: $spacing-unit;
+      transform: translateX(-100%);
+      
+      &.eth-toast--show {
+        transform: translateX(0);
+      }
+    }
+    
+    &__icon {
+      flex-shrink: 0;
+      font-size: 1.25rem;
+    }
+    
+    &__content {
+      flex: 1;
+    }
+    
+    &__title {
+      font-weight: 600;
+      color: var(--ethio-gray-900);
+      margin-bottom: $spacing-unit * 0.25;
+      font-size: $font-size-base;
+    }
+    
+    &__message {
+      color: var(--ethio-gray-500);
+      font-size: 0.875rem;
+      line-height: 1.4;
+      margin: 0;
+    }
+    
+    &__close {
+      background: none;
+      border: none;
+      color: var(--ethio-gray-500);
+      cursor: pointer;
+      padding: $spacing-unit * 0.25;
+      border-radius: 4px;
+      flex-shrink: 0;
+      
+      &:hover {
+        background-color: var(--ethio-gray-200);
+        color: var(--ethio-gray-900);
+      }
+    }
+  }
+  
+  // Toast container for multiple toasts
+  .eth-toast-container {
+    position: fixed;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-unit * 0.5;
+    
+    &--top-right {
+      top: $spacing-unit;
+      right: $spacing-unit;
+    }
+    
+    &--top-left {
+      top: $spacing-unit;
+      left: $spacing-unit;
+    }
+    
+    &--bottom-right {
+      bottom: $spacing-unit;
+      right: $spacing-unit;
+    }
+    
+    &--bottom-left {
+      bottom: $spacing-unit;
+      left: $spacing-unit;
+    }
+  }

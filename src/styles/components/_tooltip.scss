@@ -1,0 +1,233 @@
+// EthioWDS Tooltip Component
+@use '../config/variables' as *;
+
+.eth-tooltip {
+    position: relative;
+    display: inline-block;
+  
+    &__trigger {
+      cursor: pointer;
+      
+      &:focus-visible {
+        outline: 2px solid var(--primary);
+        outline-offset: 2px;
+        border-radius: 2px;
+      }
+    }
+  
+    &__content {
+      position: absolute;
+      z-index: 1000;
+      padding: calc($spacing-unit * 0.5) calc($spacing-unit * 0.75);
+      background-color: var(--ethio-gray-900);
+      color: white;
+      font-size: 0.875rem;
+      line-height: 1.4;
+      border-radius: 4px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transform: scale(0.95);
+      transition: all 0.15s ease-in-out;
+      
+      // Arrow
+      &::before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+      }
+  
+      // Show state
+      .eth-tooltip:hover &,
+      .eth-tooltip:focus-within &,
+      &--show {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  
+    // Position variants
+    &--top &__content {
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%) scale(0.95);
+      margin-bottom: 6px;
+  
+      &::before {
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 5px 4px 0 4px;
+        border-color: var(--ethio-gray-900) transparent transparent transparent;
+      }
+  
+      .eth-tooltip:hover &,
+      .eth-tooltip:focus-within &,
+      &.eth-tooltip__content--show {
+        transform: translateX(-50%) scale(1);
+      }
+    }
+  
+    &--bottom &__content {
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) scale(0.95);
+      margin-top: 6px;
+  
+      &::before {
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 0 4px 5px 4px;
+        border-color: transparent transparent var(--ethio-gray-900) transparent;
+      }
+  
+      .eth-tooltip:hover &,
+      .eth-tooltip:focus-within &,
+      &.eth-tooltip__content--show {
+        transform: translateX(-50%) scale(1);
+      }
+    }
+  
+    &--left &__content {
+      right: 100%;
+      top: 50%;
+      transform: translateY(-50%) scale(0.95);
+      margin-right: 6px;
+  
+      &::before {
+        left: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        border-width: 4px 0 4px 5px;
+        border-color: transparent transparent transparent var(--ethio-gray-900);
+      }
+  
+      .eth-tooltip:hover &,
+      .eth-tooltip:focus-within &,
+      &.eth-tooltip__content--show {
+        transform: translateY(-50%) scale(1);
+      }
+    }
+  
+    &--right &__content {
+      left: 100%;
+      top: 50%;
+      transform: translateY(-50%) scale(0.95);
+      margin-left: 6px;
+  
+      &::before {
+        right: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        border-width: 4px 5px 4px 0;
+        border-color: transparent var(--ethio-gray-900) transparent transparent;
+      }
+  
+      .eth-tooltip:hover &,
+      .eth-tooltip:focus-within &,
+      &.eth-tooltip__content--show {
+        transform: translateY(-50%) scale(1);
+      }
+    }
+  
+    // RTL support for left/right positions
+    [dir="rtl"] &--left &__content {
+      right: auto;
+      left: 100%;
+      margin-right: 0;
+      margin-left: 6px;
+    }
+  
+    [dir="rtl"] &--right &__content {
+      left: auto;
+      right: 100%;
+      margin-left: 0;
+      margin-right: 6px;
+    }
+  
+    // Color variants
+    &--primary &__content {
+      background-color: var(--primary);
+      
+      &::before {
+        border-top-color: var(--primary);
+        border-bottom-color: var(--primary);
+        border-left-color: var(--primary);
+        border-right-color: var(--primary);
+      }
+    }
+  
+    &--accent &__content {
+      background-color: var(--accent);
+      
+      &::before {
+        border-top-color: var(--accent);
+        border-bottom-color: var(--accent);
+        border-left-color: var(--accent);
+        border-right-color: var(--accent);
+      }
+    }
+  
+    &--info &__content {
+      background-color: var(--info);
+      
+      &::before {
+        border-top-color: var(--info);
+        border-bottom-color: var(--info);
+        border-left-color: var(--info);
+        border-right-color: var(--info);
+      }
+    }
+  
+    // Size variants
+    &--small &__content {
+      font-size: 0.75rem;
+      padding: calc($spacing-unit * 0.375) calc($spacing-unit * 0.5);
+    }
+  
+    &--large &__content {
+      font-size: $font-size-base;
+      padding: calc($spacing-unit * 0.625) $spacing-unit;
+      white-space: normal;
+      max-width: 200px;
+      text-align: center;
+    }
+  
+    // Multiline tooltip
+    &--multiline &__content {
+      white-space: normal;
+      max-width: 200px;
+      text-align: center;
+    }
+  
+    // Delay for show/hide
+    &--delay &__content {
+      transition-delay: 0.1s;
+    }
+  
+    // Always visible (for debugging or special cases)
+    &--always-visible &__content {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+    }
+  }
+  
+  // Tooltip group for multiple tooltips
+  .eth-tooltip-group {
+    display: flex;
+    gap: $spacing-unit;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  // Accessibility: tooltips for focusable elements
+  button:focus-visible .eth-tooltip__content,
+  a:focus-visible .eth-tooltip__content,
+  [tabindex]:focus-visible .eth-tooltip__content {
+    opacity: 1;
+    transform: scale(1);
+  }

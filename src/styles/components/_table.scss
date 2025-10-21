@@ -1,0 +1,75 @@
+// EthioWDS Table Component
+@use '../config/variables' as *;
+
+.eth-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: $font-family-sans;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    
+    &__header {
+      background-color: var(--ethio-gray-200);
+      border-bottom: 2px solid var(--primary);
+    }
+    
+    &__heading {
+      padding: calc($spacing-unit * 0.75) $spacing-unit;
+      text-align: left;
+      font-weight: 600;
+      color: var(--ethio-gray-900);
+      
+      &--sortable {
+        cursor: pointer;
+        user-select: none;
+        
+        &:hover {
+          background-color: var(--ethio-gray-300);
+        }
+      }
+    }
+    
+    &__row {
+      border-bottom: 1px solid var(--ethio-gray-200);
+      
+      &:nth-child(even) {
+        background-color: var(--ethio-gray-100);
+      }
+      
+      &:hover {
+        background-color: var(--ethio-gray-200);
+      }
+    }
+    
+    &__cell {
+      padding: calc($spacing-unit * 0.75) $spacing-unit;
+      color: var(--ethio-gray-900);
+      
+      &--center {
+        text-align: center;
+      }
+      
+      &--right {
+        text-align: right;
+      }
+    }
+    
+    // Responsive table
+    &--responsive {
+      @media (max-width: 768px) {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+    }
+    
+    // Striped variant
+    &--striped &__row:nth-child(even) {
+      background-color: var(--ethio-gray-100);
+    }
+    
+    // Hover variant
+    &--hover &__row:hover {
+      background-color: var(--ethio-gray-200);
+    }
+  }
